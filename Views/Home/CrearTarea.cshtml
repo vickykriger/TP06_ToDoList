@@ -1,0 +1,18 @@
+ Las tareas deben tener un Titulo, Descripción, Fecha y Finalizada (Si o No)
+
+     @{
+    ViewData["Crear Tarea"] = "Crear Tarea";
+    }
+    <div class = "Index">
+    <h2>Cree su tarea:: </h2>
+   
+
+    <form action='@Url.Action("Registro", "Home")' method="POST" enctype="multipart/form-data">
+    <input type="text" name="titulo" placeholder="Titulo" autocomplete = "off"/>
+    <input type="text" name="descripion" placeholder="Descripcion" autocomplete = "off"/>
+    <input type="date" name="fecha" placeholder="Fecha" autocomplete = "off"/>
+     <input type="bit" name="finalizada" placeholder="Finalizada" autocomplete = "off"/>
+      
+    <input type="submit" value="Crear Tarea"/>
+    </form>
+    </div>

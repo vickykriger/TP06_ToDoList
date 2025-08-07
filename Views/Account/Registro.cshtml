@@ -1,0 +1,16 @@
+    @{
+    ViewData["Registro"] = "Registro";
+    }
+    <div class = "Index">
+    <h2>REGISTRARSE: </h2>
+   
+
+    <form action='@Url.Action("Registro", "Home")' method="POST" enctype="multipart/form-data">
+    <input type="username" name="username" placeholder="username" autocomplete = "off"/>
+    <input type="password" name="password" placeholder="password" autocomplete = "off"/>
+    <input type="text" name="nombre" placeholder="nombre" autocomplete = "off"/>
+     <input type="text" name="apellido" placeholder="apellido" autocomplete = "off"/>
+      <input type="text" name="foto" placeholder="foto" autocomplete = "off"/>
+    <input type="submit" value="Registrarse"/>
+    </form>
+    </div>

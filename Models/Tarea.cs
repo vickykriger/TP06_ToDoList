@@ -23,4 +23,8 @@ public class Tarea
         this.finalizada = finalizada;
         this.idUsuario = idUsuario;
     }
+    public Tarea()
+    {
+        
+    }
 }

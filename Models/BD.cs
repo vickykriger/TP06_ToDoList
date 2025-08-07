@@ -26,19 +26,41 @@ public static class BD
     }
     public static Usuario login(string username, string password)
     {
-
+        Usuario logeado = new Usuario();
+        using(SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            string query = "SELECT username AND password FROM Usuarios WHERE username = @pUsername AND password = @pPassword";
+            logeado = connection.QueryFirstOrDefault<Usuario>(query, new { pUsername = username, pPassword = password});
+        }
+        return logeado;
     }
     public static void actualizarLogin(int idUsuario)
     {
-
+        string query = "UPDATE Usuarios SET ultimoLogin = @pLogin WHERE id = @pId";
+        using(SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            connection.Execute(query, new {pLogin = DateTime.Now, pId = idUsuario});
+        }
     }
     public static List<Tarea> devolverTareas(int idUsuario)
     {
-
+        List<Tarea> tareas = new List<Tarea>();
+        using(SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            string query = "SELECT * FROM Tareas WHERE idUsuario = @pUsuario";
+            tareas = connection.Query<Tarea>(query, new {pUsuario = idUsuario}).ToList();
+        }
+        return tareas;
     }
     public static Tarea devolverTarea(int idTarea)
     {
-
+        Tarea tarea = new Tarea();
+        using(SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            string query = "SELECT * FROM Tareas WHERE id = @pIdTarea";
+            tarea = connection.QueryFirstOrDefault<Tarea>(query, new {pId = idTarea});
+        }
+        return tarea;
     }
     public static void editarTarea(Tarea tarea)
     {
@@ -46,14 +68,26 @@ public static class BD
     }
     public static void eliminarTarea(int idTarea)
     {
-
+        string query = "DELETE FROM Tareas WHERE id = @pIdTarea";
+        using(SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            connection.Execute(query, new {pId = idTarea});
+        }
     }
     public static void crearTarea(Tarea tarea)
     {
-
+        string query = "INSERT INTO Tareas (titulo, descripcion, fecha, finalizada, idUsuario) VALUES (@pTitulo, @pDescripcion, @pFecha, @pFinalizada, @pIdUsuario)";
+        using(SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            connection.Execute(query, new {pTitulo = tarea.titulo, pDescripcion = tarea.descripcion, pFecha = tarea.fecha, pFinalizada = tarea.finalizada, pIdUsuario = tarea.idUsuario});
+        }
     }
     public static void finalizarTarea(int idTarea)
     {
-
+        string query = "UPDATE Tareas SET finalizada = 1 WHERE id = @pId";
+        using(SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            connection.Execute(query, new {pId = idTarea});
+        }
     }
 }

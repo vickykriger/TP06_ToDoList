@@ -1,0 +1,12 @@
+    @{
+    ViewData["Login"] = "Login";
+    }
+    <div class = "Index">
+    <h2>INICIO DE SESIÓN: </h2>
+    <form action='@Url.Action("Login", "Home")' method="POST" enctype="multipart/form-data">
+    <input type="username" name="username" placeholder="username" autocomplete = "off"/>
+    <input type="password" name="password" placeholder="password" autocomplete = "off"/>
+   
+    <input type="submit" value="Iniciar sesión"/>
+    </form>
+    </div>
