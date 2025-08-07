@@ -14,13 +14,14 @@ public static class BD
             string query = "SELECT username FROM Usuarios WHERE username = @pUusername";
             validar = connection.QueryFirstOrDefault<Usuario>(query, new { pUusername = user.username});
         }
-        if (validar!= null)
+        if (validar== null)
         {
             string query = "INSERT INTO Usuarios (nombre, apellido, foto, username, ultimoLogin, password) VALUES (@pnombre, @papellido, @pfoto, @pusername, @pultimoLogin, @ppassword)";
             using(SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Execute(query, new {pnombre = user.nombre, papellido = user.apellido, pfoto = user.foto, pusername = user.username, pultimoLogin = user.ultimoLogin, ppassword = user.password});
             }
+            registrado = true;
         }
         return registrado;
     }

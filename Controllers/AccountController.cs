@@ -15,9 +15,39 @@ public class AccountController : Controller
     {
         _logger = logger;
     }
-
-    public IActionResult Index()
+    
+    public IActionResult Login()
     {
-        return View();
+        return View("Login");
+    }
+    public IActionResult LoginGuardar(string username, string password)
+    {
+        Usuario user = BD.login(username, password);
+        if(user==null)
+        {
+            return View("Login");
+        }
+        else 
+        {
+            HttpContext.Session.SetString("user", Objeto.ObjectToString(user));
+            return RedirectToAction("VerTareas", "Home");
+        }
+    }
+    public IActionResult Registro()
+    {
+        return View("Registro");
+    }
+    public IActionResult RegistroGuardar(string username, string password, string nombre, string apellido, string foto)
+    {
+        Usuario user = new Usuario(username, password, nombre, apellido, foto);
+        bool registrado = BD.registrarse(user);
+        if(registrado)
+        {
+            return View ("Login");
+        }
+        else
+        {
+            return View ("Registro");
+        }
     }
 }

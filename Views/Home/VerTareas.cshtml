@@ -1,0 +1,33 @@
+@{
+    var tareas = ViewBag.Tareas;
+}
+
+<h2>Mis Tareas</h2>
+
+@if (tareas == null || tareas.Count == 0)
+{
+    <p>No tenés tareas activas.</p>
+}
+else
+{
+    <ul>
+        @foreach (var tarea in tareas)
+        {
+            <li>
+                <b>@tarea.Titulo</b> - @tarea.Descripcion - @tarea.Fecha.ToString("yyyy-MM-dd") - 
+                @(tarea.Finalizada ? "Finalizada" : "Pendiente")
+                 <a href='@Url.Action("ModificarTarea", "Home")'>Editar</a>
+                <a href='@Url.Action("EliminarTarea", "Home")'>Editar</a>
+                 
+                @if (!tarea.Finalizada)
+                {
+                    
+                     <a href='@Url.Action("FinalizarTarea", "Home")'>Finalizar</a>
+                }
+            </li>
+        }
+    </ul>
+}
+
+<br>
+<a href='@Url.Action("CrearTarea", "Home")'>Crear Nueva Tarea</a>

@@ -21,4 +21,12 @@ public class Usuario
     {
 
     }
+    public Usuario(string user, string password, string nombre, string apellido, string foto)
+    {
+        this.username = user;
+        this.password = password;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.foto = foto;
+    }
 }
