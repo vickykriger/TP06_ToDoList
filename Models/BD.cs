@@ -7,6 +7,7 @@ public static class BD
     DataBase=BD;Integrated Security =True;TrustServerCertificate=True;";
     public static bool registrarse(Usuario user)
     {
+        
         Usuario validar = new Usuario();
         bool registrado = false;
         using(SqlConnection connection = new SqlConnection(_connectionString))
@@ -19,6 +20,8 @@ public static class BD
             string query = "INSERT INTO Usuarios (nombre, apellido, foto, username, ultimoLogin, password) VALUES (@pnombre, @papellido, @pfoto, @pusername, @pultimoLogin, @ppassword)";
             using(SqlConnection connection = new SqlConnection(_connectionString))
             {
+                if (user.ultimoLogin < new DateTime(1753, 1, 1))
+                    user.ultimoLogin = DateTime.Now;
                 connection.Execute(query, new {pnombre = user.nombre, papellido = user.apellido, pfoto = user.foto, pusername = user.username, pultimoLogin = user.ultimoLogin, ppassword = user.password});
             }
             registrado = true;
@@ -30,7 +33,7 @@ public static class BD
         Usuario logeado = new Usuario();
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = "SELECT username AND password FROM Usuarios WHERE username = @pUsername AND password = @pPassword";
+            string query = "SELECT * FROM Usuarios WHERE username = @pUsername AND password = @pPassword";
             logeado = connection.QueryFirstOrDefault<Usuario>(query, new { pUsername = username, pPassword = password});
         }
         return logeado;
@@ -63,9 +66,14 @@ public static class BD
         }
         return tarea;
     }
-    public static void editarTarea(Tarea tarea)
+    public static void modificarTarea(int id, string tituloNuevo, string descripcionNueva, DateTime fechaNueva, bool finalizadaNueva, int idUserNuevo)
     {
-
+        Tarea tarea= devolverTarea(id);
+        tarea.titulo = tituloNuevo;
+        tarea.descripcion = descripcionNueva;
+        tarea.fecha = fechaNueva;
+        tarea.finalizada = finalizadaNueva;
+        tarea.idUsuario = idUserNuevo;
     }
     public static void eliminarTarea(int idTarea)
     {

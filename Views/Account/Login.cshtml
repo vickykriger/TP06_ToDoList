@@ -3,11 +3,11 @@
     }
     <div class = "Index">
     <h2>INICIO DE SESIÓN: </h2>
-    <form action='@Url.Action("LoginGuardar", "Account")' method="POST" enctype="multipart/form-data">
-    <input type="username" name="username" placeholder="username" autocomplete = "off"/>
-    <input type="password" name="password" placeholder="password" autocomplete = "off"/>
-    </form>
+ <form action='@Url.Action("LoginGuardar", "Account")' method="POST" enctype="multipart/form-data">
+    <input type="username" name="username" placeholder="username" autocomplete="off"/>
+    <input type="password" name="password" placeholder="password" autocomplete="off"/>
     <input type="submit" value="Iniciar sesión"/>
+</form>
     <h3>Si no tiene una cuenta, Regístrese</h3>
     <a href='@Url.Action("Registro", "Account")'>
         <button type="button">Registrarse</button>

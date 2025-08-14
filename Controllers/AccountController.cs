@@ -29,6 +29,7 @@ public class AccountController : Controller
         }
         else 
         {
+            BD.actualizarLogin(user.id);
             HttpContext.Session.SetString("user", Objeto.ObjectToString(user));
             return RedirectToAction("VerTareas", "Home");
         }
@@ -49,5 +50,10 @@ public class AccountController : Controller
         {
             return View ("Registro");
         }
+    }
+    public IActionResult cerrarSesion()
+    {
+        HttpContext.Session.Remove("user");
+        return View("Login");
     }
 }
