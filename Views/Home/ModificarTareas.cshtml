@@ -1,26 +1,23 @@
-@{
-    var tarea = ViewBag.tarea; 
-}
 
 <h2>Modificar Tarea</h2>
 <form action='@Url.Action("ModificarTareaGuardar", "Home")' method="post">
-    <input type="hidden" name="Id" value="@tarea.Id" />
+    <input type="hidden" name="Id" value="@ViewBag.tarea.id" />
 
     <div>
         <label>Título</label>
-        <input type="text" name="titulo" value="@tarea.Titulo" />
+        <input type="text" name="titulo" value="@ViewBag.tarea.titulo" />
     </div>
     <div>
         <label>Descripción</label>
-        <input type="text" name="descripcion" value="@tarea.Descripcion" />
+        <input type="text" name="descripcion" value="@ViewBag.tarea.descripcion" />
     </div>
     <div>
         <label>Fecha</label>
-        <input type="date" name="fecha" value="@(tarea.Fecha.ToString("yyyy-MM-dd"))" />
+        <input type="date" name="fecha" value="@(ViewBag.tarea.fecha.ToString("yyyy-MM-dd"))" />
     </div>
-    <div>
-        <label>Finalizada</label>
-        <input type="checkbox" name="finalizada" @(tarea.Finalizada ? "checked" : "") />
-    </div>
+   <div>
+    <label>Finalizada</label>
+    <input type="checkbox" name="finalizada" value="true" @(ViewBag.tarea.finalizada ? "checked" : "") />
+</div>
     <button type="submit">Guardar Cambios</button>
 </form>

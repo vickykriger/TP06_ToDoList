@@ -20,9 +20,11 @@ public class HomeController : Controller
     {
         return RedirectToAction("Login", "Account");
     }
-    public IActionResult VerTareas()
+   public IActionResult VerTareas()
     {
-        return View ("VerTareas");
+        int id = Objeto.StringToObject<Usuario>(HttpContext.Session.GetString("user")).id;
+        ViewBag.Tareas = BD.devolverTareas(id);
+        return View("VerTareas");
     }
     public IActionResult VerTarea(int id)
     {
@@ -39,7 +41,7 @@ public class HomeController : Controller
         int id = Objeto.StringToObject<Usuario>(HttpContext.Session.GetString("user")).id;
         Tarea tarea = new Tarea (titulo, descripcion, fecha, finalizada, id);
         BD.crearTarea(tarea);
-        return View ("VerTareas");
+        return RedirectToAction("VerTareas");
     }
     public IActionResult ModificarTarea(int id)
     {
@@ -50,18 +52,18 @@ public class HomeController : Controller
     {
         int idUser = Objeto.StringToObject<Usuario>(HttpContext.Session.GetString("user")).id;
         BD.modificarTarea(id, titulo, descripcion, fecha, finalizada, idUser);
-        return View ("VerTareas");
+        return RedirectToAction("VerTareas");
     }
     public IActionResult EliminarTarea(int id)
     {
         BD.eliminarTarea(id);
-        return View ("VerTareas");
+        return RedirectToAction("VerTareas");
     }   
 
     public IActionResult FinalizarTarea(int id) 
     {
         BD.finalizarTarea(id);
-        return View ("VerTareas");
+        return RedirectToAction("VerTareas");
     }
 
 }

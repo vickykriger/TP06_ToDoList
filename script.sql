@@ -11,7 +11,7 @@ GO
 CREATE TABLE [dbo].[Tareas](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[titulo] [varchar](50) NOT NULL,
-	[descripcion] [varchar](50) NOT NULL,
+	[descripcion] [varchar](50) NULL,
 	[fecha] [date] NOT NULL,
 	[finalizada] [bit] NOT NULL,
 	[idUsuario] [int] NOT NULL,
