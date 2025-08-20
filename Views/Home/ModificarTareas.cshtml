@@ -3,6 +3,7 @@
 <form action='@Url.Action("ModificarTareaGuardar", "Home")' method="post">
     <input type="hidden" name="Id" value="@ViewBag.tarea.id" />
 
+<section class="ModificarTarea">
     <div>
         <label>Título</label>
         <input type="text" name="titulo" value="@ViewBag.tarea.titulo" />
@@ -16,8 +17,9 @@
         <input type="date" name="fecha" value="@(ViewBag.tarea.fecha.ToString("yyyy-MM-dd"))" />
     </div>
    <div>
-    <label>Finalizada</label>
-    <input type="checkbox" name="finalizada" value="true" @(ViewBag.tarea.finalizada ? "checked" : "") />
-</div>
+        <label>Finalizada</label>
+        <input type="checkbox" name="finalizada" value="true" @(ViewBag.tarea.finalizada ? "checked" : "") />
+    </div>
     <button type="submit">Guardar Cambios</button>
 </form>
+</section>

@@ -1,10 +1,8 @@
     @{
     ViewData["Registro"] = "Registro";
     }
-    <div class = "Index">
+    <div class = "Registro">
     <h2>REGISTRARSE: </h2>
-   
-
     <form action='@Url.Action("RegistroGuardar", "Account")' method="POST" enctype="multipart/form-data">
     <input type="username" name="username" placeholder="username" autocomplete = "off"/>
     <input type="password" name="password" placeholder="password" autocomplete = "off"/>

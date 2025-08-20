@@ -16,7 +16,7 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   max-width: 500px;
   margin: 40px auto;
-  color: #2c3e50;
+  color: #3c5268;
 }
 
 .perfil h2 {
@@ -141,7 +141,7 @@ section {
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #fff;
+  color: white;
   display: flex;
 }
 
