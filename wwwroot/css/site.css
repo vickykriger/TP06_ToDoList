@@ -1,177 +1,247 @@
-@media (max-width: 600px) 
-{
-  header, footer {
-      font-size: 18px;
-      padding: 15px;
-  }
-
-  main {
-      padding: 20px 10px;
-  }
-}
-.perfil {
-  background-color: #ffffffdd;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  max-width: 500px;
-  margin: 40px auto;
-  color: #3c5268;
-}
-
-.perfil h2 {
-  margin-bottom: 20px;
-  text-align: center;
-  color: #34495e;
-}
-
-.perfil div {
-  padding: 10px 0;
-  font-size: 16px;
-  border-bottom: 1px solid #ddd;
-}
-
-.perfil div:last-child {
-  border-bottom: none;
-}
-
-
-.boton {
-  display: inline-block;
-  background-color: #3498db;
-  color: white;
-  padding: 12px 20px;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-}
-
-.boton:hover {
-  background-color: #2980b9;
-}
-
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #2c3e50, #3498db);
+  background: #f4f7ff;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
   margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  color: #333;
 }
 
 .Index {
-  background-color: #ffffffdd;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  width: 350px;
+  max-width: 350px;
+  margin: 50px auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #b8c2e0;
+  padding: 25px 18px;
   text-align: center;
 }
 
 .Index h2 {
-  margin-bottom: 25px;
-  color: #2c3e50;
-  font-weight: bold;
+  color: #3878e3;
+  margin-bottom: 22px;
+  font-size: 27px;
 }
 
-form input[type="email"],
-form input[type="password"] {
-  width: 100%;
-  padding: 12px 15px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-sizing: border-box;
-  transition: all 0.3s ease;
+.Index input, .Index button {
+  display: block;
+  width: 90%;
+  margin: 11px auto;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #3878e3;
+  font-size: 15px;
 }
 
-form input[type="email"]:focus,
-form input[type="password"]:focus {
-  border-color: #3498db;
-  outline: none;
-  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-}
-
-form input[type="submit"] {
-  background-color: #3498db;
-  color: white;
-  padding: 12px;
-  width: 100%;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-form input[type="submit"]:hover {
-  background-color: #2980b9;
-}
-
-p {
-  margin: 5px 0;
-  font-size: 14px;
+.Index button {
+  background: #3878e3;
   color: #fff;
-}
-
-section {
-  margin-top: 20px;
-}
-
-.boton {
-  display: inline-block;
-  background-color: #2ecc71;
-  color: white;
-  padding: 12px 20px;
-  text-decoration: none;
-  border-radius: 8px;
+  border: none;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.Index button:hover {
+  background: #295bb2;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: white;
-  display: flex;
+.Registro {
+  max-width: 370px;
+  margin: 50px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #b8c2e0;
+  padding: 25px 18px;
+  text-align: center;
 }
 
-header {
-  background-color: #2c3e50;
-  padding: 20px;
+.Registro h2 {
+  color: #3ea36b;
+  margin-bottom: 22px;
+  font-size: 27px;
+}
+
+.Registro input, .Registro button {
+  display: block;
+  width: 90%;
+  margin: 11px auto;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #3ea36b;
+  font-size: 15px;
+}
+
+.Registro button {
+  background: #3ea36b;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.Registro button:hover {
+  background: #257f4c;
+}
+
+.CrearTarea {
+  max-width: 430px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px #d5e2fa;
+  padding: 27px 22px;
+}
+
+.CrearTarea h2 {
+  color: #3878e3;
+  margin-bottom: 18px;
   font-size: 24px;
+}
+
+.CrearTarea label {
+  display: block;
+  margin-top: 10px;
+  color: #3878e3;
   font-weight: bold;
-  text-align: center;
-  color: white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
+.CrearTarea input{
+  width: 97%;
+  margin: 9px 0;
+  padding: 7px;
+  border-radius: 6px;
+  border: 1px solid #6da7fa;
+  font-size: 15px;
 }
 
-footer {
-  background-color: #2c3e50;
-  color: #ccc;
-  text-align: center;
-  padding: 15px;
+.CrearTarea button {
+  background: #3878e3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.CrearTarea button:hover {
+  background: #295bb2;
+}
+
+.ModificarTarea {
+  max-width: 430px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px #fae2d5;
+  padding: 27px 22px;
+}
+
+.ModificarTarea h2 {
+  color: #e38c38;
+  margin-bottom: 18px;
+  font-size: 24px;
+}
+
+.ModificarTarea label {
+  display: block;
+  margin-top: 10px;
+  color: #e38c38;
+  font-weight: bold;
+}
+
+.ModificarTarea input, .ModificarTarea textarea {
+  width: 97%;
+  margin: 9px 0;
+  padding: 7px;
+  border-radius: 6px;
+  border: 1px solid #e6ba8a;
+  font-size: 15px;
+}
+
+.ModificarTarea button {
+  background: #e38c38;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.ModificarTarea button:hover {
+  background: #c26e25;
+}
+
+.VerTarea {
+  max-width: 420px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px #d5fae2;
+  padding: 27px 22px;
+}
+
+.VerTarea h2 {
+  color: #3ea36b;
+  margin-bottom: 14px;
+  font-size: 24px;
+}
+
+.VerTarea button {
+  background: #3ea36b;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 14px;
   font-size: 14px;
+  font-weight: bold;
+  margin-top: 12px;
+  cursor: pointer;
 }
 
+.VerTarea button:hover {
+  background: #257f4c;
+}
 
-a:hover {
-  color: #ffffff;
+.VerTareas {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px #d5e2fa;
+  padding: 24px 18px;
+}
+
+.VerTareas h2 {
+  color: #3878e3;
+  margin-bottom: 16px;
+  font-size: 23px;
+}
+
+.VerTareas .tarea {
+  background: #f0f6ff;
+  border-radius: 8px;
+  margin-bottom: 13px;
+  padding: 13px 16px;
+  box-shadow: 0 1px 3px #dde4f7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.VerTareas button:hover {
+  background: #295bb2;
+}
+
+.VerTarea a{
+  color: #257f4c;
+  margin-left: 35%;
+  margin-right: 30%;
+}
+
+footer{
+  text-align: center;
 }
